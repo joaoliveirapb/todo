@@ -23,7 +23,7 @@ export function ThemeButton() {
   return (
     <button
       onClick={changeTheme}
-      className="flex items-center gap-1 rounded-xl border-2 border-zinc-300 px-3 dark:border-zinc-600"
+      className="absolute right-0 flex h-full items-center gap-1 rounded-xl border-2 border-zinc-300 px-3 dark:border-zinc-600"
     >
       {theme === 'light' ? (
         <>
