@@ -1,3 +1,5 @@
+import { TodoItem } from './TodoItem'
+
 export function AllTodoList() {
-  return <h1>All To-Do List</h1>
+  return <TodoItem />
 }
