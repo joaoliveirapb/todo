@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { InputField } from '@/components/InputField'
 import { Navbar } from '@/components/Navbar'
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <div className="flex-1">
         <Navbar />
+        <InputField />
       </div>
       <Footer />
     </main>
