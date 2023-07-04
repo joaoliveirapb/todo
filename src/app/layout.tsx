@@ -1,3 +1,4 @@
+import { ThemeContext } from '@/context/ThemeContext'
 import { Montserrat, Raleway } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -22,8 +23,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${montserrat.variable} font-sans`}>
-        {children}
+      <body
+        className={`${raleway.variable} ${montserrat.variable} flex justify-center font-sans dark:bg-zinc-900`}
+      >
+        <ThemeContext>{children}</ThemeContext>
       </body>
     </html>
   )
