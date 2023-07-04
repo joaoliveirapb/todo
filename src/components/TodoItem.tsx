@@ -1,7 +1,12 @@
+import { TaskProps } from '@/interfaces/TaskProps'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash2 } from 'lucide-react'
 
-export function TodoItem() {
+interface TodoItemProps {
+  todo: TaskProps
+}
+
+export function TodoItem({ todo }: TodoItemProps) {
   return (
     <div className="mt-5 flex justify-between">
       <div className="flex items-center gap-2">
@@ -14,7 +19,7 @@ export function TodoItem() {
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label className="text-lg font-medium" htmlFor="c1">
-          Task
+          {todo.text} - {todo.id}
         </label>
       </div>
       <button>

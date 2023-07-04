@@ -7,12 +7,14 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { InputField } from '@/components/InputField'
 import { Navbar } from '@/components/Navbar'
+import { TaskProps } from '@/interfaces/TaskProps'
 import { useState } from 'react'
 
 export default function Home() {
   const [isAllTodoList, setIsAllTodoList] = useState<boolean>(true)
   const [isActiveTodoList, setIsActiveTodoList] = useState<boolean>(false)
   const [isCompletedTodoList, setIsCompletedTodoList] = useState<boolean>(false)
+  const [allTodos, setAllTodos] = useState<TaskProps[]>([])
 
   function navigate(section: string) {
     switch (section) {
@@ -34,6 +36,10 @@ export default function Home() {
     }
   }
 
+  function addTask(task: TaskProps) {
+    setAllTodos([...allTodos, task])
+  }
+
   return (
     <main className="flex min-h-screen w-full max-w-[608px] flex-col py-8">
       <Header />
@@ -44,8 +50,8 @@ export default function Home() {
           activeTodoList={isActiveTodoList}
           completedTodoList={isCompletedTodoList}
         />
-        <InputField />
-        {isAllTodoList && <AllTodoList />}
+        <InputField addTaskFunction={addTask} />
+        {isAllTodoList && <AllTodoList allTodos={allTodos} />}
         {isActiveTodoList && <ActiveTodoList />}
         {isCompletedTodoList && <CompletedTodoList />}
       </div>
