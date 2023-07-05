@@ -15,6 +15,7 @@ interface TasksContextProps {
   setAllTodos: Dispatch<SetStateAction<TaskProps[]>>
   addTask: (task: TaskProps) => void
   deleteTask: (id: number) => void
+  updateCheckTask: (id: number) => void
 }
 
 export const TasksContext = createContext<TasksContextProps>(
@@ -33,9 +34,23 @@ export function TasksProvider({ children }: { children: ReactNode }) {
     setAllTodos(newAllTodos)
   }
 
+  function updateCheckTask(id: number) {
+    const updatedCheckTodos = allTodos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          checked: !todo.checked,
+        }
+      }
+      return todo
+    })
+
+    setAllTodos(updatedCheckTodos)
+  }
+
   return (
     <TasksContext.Provider
-      value={{ allTodos, setAllTodos, addTask, deleteTask }}
+      value={{ allTodos, setAllTodos, addTask, deleteTask, updateCheckTask }}
     >
       {children}
     </TasksContext.Provider>

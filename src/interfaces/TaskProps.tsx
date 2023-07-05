@@ -1,4 +1,5 @@
 export interface TaskProps {
-  text: string
   id: number
+  text: string
+  checked: boolean
 }

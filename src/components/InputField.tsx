@@ -8,7 +8,7 @@ export function InputField() {
 
   function todoCreate(task: string) {
     if (inputTask.length > 0) {
-      const todoObj = { text: task, id: taskId }
+      const todoObj = { text: task, id: taskId, checked: false }
       setTaskId(taskId + 1)
       addTask(todoObj)
       setInputTask('')

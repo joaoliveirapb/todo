@@ -8,7 +8,7 @@ interface TodoItemProps {
 }
 
 export function TodoItem({ todo }: TodoItemProps) {
-  const { deleteTask } = useTasksContext()
+  const { deleteTask, updateCheckTask } = useTasksContext()
 
   return (
     <div className="mt-5 flex justify-between">
@@ -16,12 +16,17 @@ export function TodoItem({ todo }: TodoItemProps) {
         <Checkbox.Root
           className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-md border-2 border-zinc-300 dark:border-zinc-600"
           id="c1"
+          checked={todo.checked}
+          onCheckedChange={() => updateCheckTask(todo.id)}
         >
           <Checkbox.Indicator className="h-full w-full bg-blue-500 text-white">
             <Check size={20} />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        <label className="text-lg font-medium" htmlFor="c1">
+        <label
+          className={`text-lg font-medium ${todo.checked && 'line-through'}`}
+          htmlFor="c1"
+        >
           {todo.text}
         </label>
       </div>
