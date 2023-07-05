@@ -1,11 +1,9 @@
-import { TaskProps } from '@/interfaces/TaskProps'
+import { useTasksContext } from '@/context/TasksContext'
 import { TodoItem } from './TodoItem'
 
-interface AllTodoListProps {
-  allTodos: TaskProps[]
-}
+export function AllTodoList() {
+  const { allTodos } = useTasksContext()
 
-export function AllTodoList({ allTodos }: AllTodoListProps) {
   return (
     <>
       {allTodos.map((todo) => (

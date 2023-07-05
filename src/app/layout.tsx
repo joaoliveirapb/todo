@@ -1,4 +1,4 @@
-import { ThemeContext } from '@/context/ThemeContext'
+import { AppProvider } from '@/context'
 import { Montserrat, Raleway } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${raleway.variable} ${montserrat.variable} flex justify-center font-sans dark:bg-zinc-900`}
       >
-        <ThemeContext>{children}</ThemeContext>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   )

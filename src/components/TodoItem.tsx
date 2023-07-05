@@ -1,3 +1,4 @@
+import { useTasksContext } from '@/context/TasksContext'
 import { TaskProps } from '@/interfaces/TaskProps'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash2 } from 'lucide-react'
@@ -7,6 +8,8 @@ interface TodoItemProps {
 }
 
 export function TodoItem({ todo }: TodoItemProps) {
+  const { deleteTask } = useTasksContext()
+
   return (
     <div className="mt-5 flex justify-between">
       <div className="flex items-center gap-2">
@@ -19,11 +22,14 @@ export function TodoItem({ todo }: TodoItemProps) {
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label className="text-lg font-medium" htmlFor="c1">
-          {todo.text} - {todo.id}
+          {todo.text}
         </label>
       </div>
-      <button>
-        <Trash2 size={20} className="text-red-500" />
+      <button
+        onClick={() => deleteTask(todo.id)}
+        className="text-red-500 hover:text-red-600"
+      >
+        <Trash2 size={20} />
       </button>
     </div>
   )
