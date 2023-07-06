@@ -6,7 +6,7 @@ import { TodoItem } from './TodoItem'
 export function CompletedTodoList() {
   const [isDeleteAllButtonVisible, setIsDeleteAllButtonVisible] =
     useState<boolean>(false)
-  const { allTodos } = useTasksContext()
+  const { allTodos, deleteAllCompletedTasks } = useTasksContext()
 
   useEffect(() => {
     const hasCompletedTodos = allTodos.some((todo) => todo.checked)
@@ -20,7 +20,10 @@ export function CompletedTodoList() {
       )}
       {isDeleteAllButtonVisible && (
         <div className="mt-6 flex justify-end">
-          <button className="flex items-center gap-1 rounded-xl bg-red-500 px-8 py-4 text-white transition-colors hover:bg-red-600">
+          <button
+            onClick={deleteAllCompletedTasks}
+            className="flex items-center gap-1 rounded-xl bg-red-500 px-8 py-4 text-white transition-colors hover:bg-red-600"
+          >
             <Trash2 size={14} />
             <span className="text-xs font-semibold">delete all</span>
           </button>
