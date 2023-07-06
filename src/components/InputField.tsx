@@ -1,7 +1,11 @@
 import { useTasksContext } from '@/context/TasksContext'
 import { KeyboardEvent, useState } from 'react'
 
-export function InputField() {
+interface InputFieldProps {
+  completedTodoList: boolean
+}
+
+export function InputField({ completedTodoList }: InputFieldProps) {
   const [inputTask, setInputTask] = useState<string>('')
   const [taskId, setTaskId] = useState<number>(0)
   const { addTask } = useTasksContext()
@@ -22,7 +26,7 @@ export function InputField() {
   }
 
   return (
-    <div className="mt-5 flex gap-4">
+    <div className={`mt-5 flex gap-4 ${completedTodoList && 'hidden'}`}>
       <input
         type="text"
         placeholder="add details"

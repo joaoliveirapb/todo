@@ -44,7 +44,7 @@ export default function Home() {
           activeTodoList={isActiveTodoList}
           completedTodoList={isCompletedTodoList}
         />
-        <InputField />
+        <InputField completedTodoList={isCompletedTodoList} />
         {isAllTodoList && <AllTodoList />}
         {isActiveTodoList && <ActiveTodoList />}
         {isCompletedTodoList && <CompletedTodoList />}
