@@ -1,3 +1,14 @@
+import { useTasksContext } from '@/context/TasksContext'
+import { TodoItem } from './TodoItem'
+
 export function CompletedTodoList() {
-  return <h1>Completed To-Do List</h1>
+  const { allTodos } = useTasksContext()
+
+  return (
+    <>
+      {allTodos.map(
+        (todo) => todo.checked && <TodoItem key={todo.id} todo={todo} />,
+      )}
+    </>
+  )
 }
