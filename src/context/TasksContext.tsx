@@ -1,5 +1,6 @@
 'use client'
 
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { TaskProps } from '@/interfaces/TaskProps'
 import {
   Dispatch,
@@ -7,7 +8,6 @@ import {
   SetStateAction,
   createContext,
   useContext,
-  useState,
 } from 'react'
 
 interface TasksContextProps {
@@ -24,7 +24,8 @@ export const TasksContext = createContext<TasksContextProps>(
 )
 
 export function TasksProvider({ children }: { children: ReactNode }) {
-  const [allTodos, setAllTodos] = useState<TaskProps[]>([])
+  // const [allTodos, setAllTodos] = useState<TaskProps[]>([])
+  const [allTodos, setAllTodos] = useLocalStorage<TaskProps[]>('all_todos', [])
 
   function addTask(task: TaskProps) {
     setAllTodos([...allTodos, task])
