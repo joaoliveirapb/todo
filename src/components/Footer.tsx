@@ -7,6 +7,7 @@ export function Footer() {
       created with <Heart size={18} className="mx-0.5 text-red-500" /> by
       <Link
         href="https://github.com/joaoliveirapb"
+        target="_blank"
         className="ml-0.5 font-bold underline"
       >
         @joaoliveirapb
