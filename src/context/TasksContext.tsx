@@ -32,13 +32,13 @@ export function TasksProvider({ children }: { children: ReactNode }) {
   }
 
   function deleteTask(id: number) {
-    const newAllTodos = allTodos.filter((todo) => todo.id !== id)
+    const newAllTodos = allTodos.filter((_, index) => index !== id)
     setAllTodos(newAllTodos)
   }
 
   function updateCheckTask(id: number) {
-    const updatedCheckTodos = allTodos.map((todo) => {
-      if (todo.id === id) {
+    const updatedCheckTodos = allTodos.map((todo, index) => {
+      if (index === id) {
         return {
           ...todo,
           checked: !todo.checked,

@@ -6,8 +6,8 @@ export function AllTodoList() {
 
   return (
     <>
-      {allTodos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+      {allTodos.map((todo, index) => (
+        <TodoItem key={index} todo={todo} index={index} />
       ))}
     </>
   )

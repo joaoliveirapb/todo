@@ -5,9 +5,10 @@ import { Check, Trash2 } from 'lucide-react'
 
 interface TodoItemProps {
   todo: TaskProps
+  index: number
 }
 
-export function TodoItem({ todo }: TodoItemProps) {
+export function TodoItem({ todo, index }: TodoItemProps) {
   const { deleteTask, updateCheckTask } = useTasksContext()
 
   return (
@@ -17,7 +18,7 @@ export function TodoItem({ todo }: TodoItemProps) {
           className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-md border-2 border-zinc-300 dark:border-zinc-600"
           id="c1"
           checked={todo.checked}
-          onCheckedChange={() => updateCheckTask(todo.id)}
+          onCheckedChange={() => updateCheckTask(index)}
         >
           <Checkbox.Indicator className="h-full w-full bg-blue-500 text-white">
             <Check size={20} />
@@ -31,7 +32,7 @@ export function TodoItem({ todo }: TodoItemProps) {
         </label>
       </div>
       <button
-        onClick={() => deleteTask(todo.id)}
+        onClick={() => deleteTask(index)}
         className="text-red-500 hover:text-red-600"
       >
         <Trash2 size={20} />

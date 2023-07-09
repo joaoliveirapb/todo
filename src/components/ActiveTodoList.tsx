@@ -7,7 +7,8 @@ export function ActiveTodoList() {
   return (
     <>
       {allTodos.map(
-        (todo) => !todo.checked && <TodoItem key={todo.id} todo={todo} />,
+        (todo, index) =>
+          !todo.checked && <TodoItem key={index} todo={todo} index={index} />,
       )}
     </>
   )
