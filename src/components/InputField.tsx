@@ -37,11 +37,11 @@ export function InputField({ completedTodoList }: InputFieldProps) {
           value={inputTask}
           onChange={(e) => setInputTask(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 rounded-xl border-2 border-zinc-300 bg-transparent p-4 text-xs font-medium focus:outline-none dark:border-zinc-600"
+          className="flex-1 rounded-xl border-2 border-zinc-300 bg-transparent p-4 text-sm font-medium focus:outline-none dark:border-zinc-600"
         />
         <button
           onClick={() => todoCreate(inputTask)}
-          className="rounded-xl bg-blue-500 px-9 text-sm text-white transition-colors hover:bg-blue-600"
+          className="rounded-xl bg-blue-500 px-9 text-sm font-medium text-white transition-colors hover:bg-blue-600 max-[400px]:px-4 max-[400px]:text-xs"
         >
           Add
         </button>

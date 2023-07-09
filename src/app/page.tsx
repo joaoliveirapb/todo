@@ -35,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen w-full max-w-[608px] flex-col py-8">
+    <main className="flex min-h-screen w-full max-w-[608px] flex-col py-8 max-sm:px-4">
       <Header />
       <div className="flex-1">
         <Navbar
