@@ -16,7 +16,7 @@ export function TodoItem({ todo, index }: TodoItemProps) {
       <div className="flex items-center gap-2">
         <Checkbox.Root
           className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-md border-2 border-zinc-300 dark:border-zinc-600"
-          id="c1"
+          id={`task-${index}`}
           checked={todo.checked}
           onCheckedChange={() => updateCheckTask(index)}
         >
@@ -26,7 +26,7 @@ export function TodoItem({ todo, index }: TodoItemProps) {
         </Checkbox.Root>
         <label
           className={`text-lg font-medium ${todo.checked && 'line-through'}`}
-          htmlFor="c1"
+          htmlFor={`task-${index}`}
         >
           {todo.text}
         </label>
